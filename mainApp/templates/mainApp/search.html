@@ -1,0 +1,24 @@
+
+    {% for category in categories_result %}
+        <a href="{% url 'component_type_list_view' category.id %}" class="results__item-line">{{ category }}</a>
+    {% endfor %}
+
+    <p class="results__item-line"></p>
+    {% for component in componets_result %}
+        <a href="{% url 'component_page_view' component.type.id component.id %}" class="results__item-block">
+            <img class="results__item-block-image" src="{{ component.photo.url }}" alt="{{ component }}">
+            <div class="results__item-block-descr">
+                <p class="results__item-block-name">{{ component }}</p>
+                <p class="results__item-block-price">{{ component.price }}</p>
+            </div>
+        </a>
+    {% endfor %}
+    {% for radiator in radiators_result %}
+        <a href="" class="results__item-block">
+            <img class="results__item-block-image" src="{{ radiator.photo.url }}" alt="{{ radiator }}">
+            <div class="results__item-block-descr">
+                <p class="results__item-block-name">{{ radiator }}</p>
+                <p class="results__item-block-price">{{ radiator.price }}</p>
+            </div>
+        </a>
+    {% endfor %}

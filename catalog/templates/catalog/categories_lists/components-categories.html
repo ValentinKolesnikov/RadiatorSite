@@ -1,0 +1,31 @@
+{% extends 'mainApp/wrapper.html' %}
+
+{% block title %}
+    Категории комплектующих
+{% endblock %}
+
+{% block styles %}
+    {% load static %}
+        <link rel="stylesheet" href={% static 'css/list.css' %}>
+{% endblock %}
+
+{% block content %}
+    <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
+
+        <section class="comp-catalog">
+            {% for component_type in all_categories %}
+                 <div class="comp-catalog__item">
+                     <img src={{ component_type.photo.url }} alt="{{ component_type }}" class="comp-catalog__item-image">
+                     <div class="comp-catalog__item-name">
+                        <a href={% url 'component_type_list_view' component_type.id %}>{{ component_type }}</a>
+                     </div>
+                </div>
+            {% endfor %}
+        </section>
+{% endblock %}
+
+{% block scripts %}
+    {% load static %}
+    <script src={% static 'js/list.js' %}></script>
+
+{% endblock %}

@@ -1,0 +1,411 @@
+@import _colors
+
+
+
+.radiator
+  width: 90%
+  margin: auto
+  &__manufacturers
+    display: flex
+    flex-wrap: wrap
+    margin: 30px 0
+  &__manufacturer
+    margin-right: 10px
+    margin-top: 5px
+
+    border-bottom: 1px dotted rgba($dark-font, 0.7)
+    a
+      color: rgba($dark-font, 0.7)
+      transiton: 0.15s all ease
+      &:hover
+        transiton: 0.15s all ease
+        color: $dark-font
+  &__name
+    font-size: 3.2rem
+    margin: 50px 0
+
+  &__filter
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 40px
+  &__view
+    display: flex
+    flex-direction: column
+    align-content: center
+    width: 32%
+    img
+      width: 90%
+      height: 350px
+      object-fit: contain
+  &__price
+    text-align: center
+    vertical-align: middle
+    padding: 20px 0 25px 0
+    border-top: 1px solid rgba(0,0,0,0.1)
+    border-bottom: 1px solid rgba(0,0,0,0.1)
+    margin-bottom: 3rem
+  &__price-value
+    font-size: 2rem
+  &__basket-adding
+    padding: 10px 20px
+    background-color: $first-color
+    color: $light
+    margin-left: 10px
+    &:hover
+      transition: 0.1s all ease
+      background-color: $dark-font
+
+  &__measurings
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    width: 100%
+    padding: 0 0 0 40px
+    select
+      margin-bottom: 20px
+    &-left
+      width: 47%
+    &-right
+      width: 47%
+  &__measuring-name
+    color: rgba($dark-font, 0.7)
+    margin-bottom: 4px
+
+
+  &__specification-name
+    color: rgba($dark-font, 0.7)
+    margin-bottom: 10px
+  &__specification
+    font-size: 2.8rem
+    margin-bottom: 20px
+
+  &__specifications
+    width: 100%
+    display: flex
+    flex-direction: row
+    margin-bottom: 40px
+    &-title
+      font-size: 1.7rem
+      color: rgba($dark-font, 0.9)
+      margin-bottom: 15px
+    &-name
+      p
+        border-bottom: 1px solid rgba($dark-font, 0.3)
+        margin-bottom: 10px
+        font-size: 1.7rem
+        color: rgba($dark-font, 0.8)
+        font-weight: bold
+    &-value
+
+      p
+        padding-left: 30px
+        border-bottom: 1px solid rgba($dark-font, 0.3)
+        margin-bottom: 10px
+        font-size: 1.7rem
+        color: rgba($dark-font, 0.7)
+
+
+
+  &__description
+    color: rgba($dark-font, 0.8)
+    text-align: justify
+    margin: 15px 0 70px 0
+    white-space: pre-wrap
+
+  &__selected-color
+    display: flex
+    &-block
+      width: 20%
+      height: 7vh
+    &-name
+      color: grey
+      margin-left: 10px
+      margin-top: 15px
+  &__selected-connection
+    display: flex
+    &-block
+      width: 20%
+      height: 7vh
+    &-name
+      color: grey
+      margin-left: 10px
+      margin-top: 15px
+  &__color
+    width: 100%
+  &__connection
+    width: 47%
+  &__parameters
+    display: flex
+    flex-direction: column
+    width: 68%
+    flex-wrap: wrap
+    &-top
+      display: flex
+    &-bottom
+      margin-top: 30px
+      display: flex
+      flex-wrap: wrap
+      padding: 0 0 0 40px
+
+#design-color
+  width: 100%
+  padding: 0 40px 0 0
+
+#design-spec
+  justify-content: start
+  .radiator__specification-name
+    margin-bottom: 7px
+
+.selection-btn
+  width: 100%
+  padding: 10px 20px
+  font-size: 1.7rem
+  border: 1px solid rgba($dark-font, 0.2)
+  border-radius: 7px
+  margin-bottom: 20px
+  background-color: transparent
+  position: relative
+  &::before
+    content: ''
+    border: 4px solid transparent
+    border-top: 6px solid #000000
+    position: absolute
+    right: 5px
+    top: 45%
+  &:hover
+    border: 1px solid rgba($dark-font, 0.5)
+    transition: 0.15s all ease
+
+.filter-select
+  padding: 10px 20px
+  font-size: 1.7rem
+  border: 1px solid rgba($dark-font, 0.2)
+  border-radius: 7px
+  transition: 0.15s all ease
+  width: 100%
+  &:hover
+    border: 1px solid rgba($dark-font, 0.5)
+    transition: 0.15s all ease
+
+
+body
+  position: relative
+// overflow: hidden
+
+.extended-selection
+  width: 100%
+  height: 100%
+  position: absolute
+  z-index: 1000
+  display: none
+  &__mask
+    width: 100%
+    height: 100%
+    position: absolute
+    background-color: rgba(0,0,0,0.7)
+    z-index: 1001
+    cursor: pointer
+  &__list
+    width: 40%
+    background-color: rgba($dark-font, 0.9)
+    position: fixed
+    top: 70px
+    left: 50%
+    transform: translate(-50%, 0)
+    padding: 10px 30px 30px 30px
+    display: flex
+    flex-wrap: wrap
+    justify-content: start
+    z-index: 1002
+    overflow: scroll
+    overflow-x: hidden
+    height: 75vh
+    &::-webkit-scrollbar
+      width: 0
+    &
+      -ms-overflow-style: none
+    &
+      overflow: -moz-scrollbars-none
+
+
+  &__item
+    width: 20%
+    margin: 2.5%
+
+  &__color-block
+    width: 100%
+    height: 60px
+    cursor: pointer
+    &:hover
+      box-shadow: 0 14px 28px rgba(255,255,255,0.25), 0 10px 10px rgba(255,255,255,0.22)
+  &__color-name
+    text-align: center
+    margin-top: 5px
+    color: $light-font
+    cursor: pointer
+    &:hover
+      .extended-selection__color-block
+        box-shadow: 0 14px 28px rgba(255,255,255,0.25), 0 10px 10px rgba(255,255,255,0.22)
+  &__title
+    position: fixed
+    padding: 20px 30px
+    width: 40%
+    left: 50%
+    transform: translate(-50%, 0)
+    z-index: 1002
+    color: $light-font
+    background-color: rgba($dark-font, 0.9)
+    border-bottom: 1px solid $light
+    margin-top: 12px
+
+.extended-selection-con
+  width: 100%
+  height: 100%
+  position: absolute
+  z-index: 1000
+  display: none
+  &__mask
+    width: 100%
+    height: 100%
+    position: absolute
+    background-color: rgba(0,0,0,0.7)
+    z-index: 1001
+    cursor: pointer
+  &__list
+    width: 40%
+    background-color: rgba($dark-font, 0.9)
+    position: fixed
+    top: 70px
+    left: 50%
+    transform: translate(-50%, 0)
+    padding: 10px 30px 30px 30px
+    display: flex
+    flex-wrap: wrap
+    justify-content: start
+    z-index: 1002
+    overflow: scroll
+    overflow-x: hidden
+    height: 75vh
+    &::-webkit-scrollbar
+      width: 0
+    &
+      -ms-overflow-style: none
+    &
+      overflow: -moz-scrollbars-none
+
+
+  &__item
+    width: 20%
+    margin: 2.5%
+
+  &__color-block
+    width: 100%
+    height: 70px
+    cursor: pointer
+    &:hover
+      box-shadow: 0 14px 28px rgba(255,255,255,0.25), 0 10px 10px rgba(255,255,255,0.22)
+  &__color-name
+    text-align: center
+    margin-top: 5px
+    color: $light-font
+    cursor: pointer
+    &:hover
+      .extended-selection-con__color-block
+        box-shadow: 0 14px 28px rgba(255,255,255,0.25), 0 10px 10px rgba(255,255,255,0.22)
+  &__title
+    position: fixed
+    padding: 20px 30px
+    width: 40%
+    left: 50%
+    transform: translate(-50%, 0)
+    z-index: 1002
+    color: $light-font
+    background-color: rgba($dark-font, 0.9)
+    border-bottom: 1px solid $light
+    margin-top: 12px
+
+.see-also
+  margin: 50px auto
+  width: 90%
+  &__title
+    font-size: 2.7rem
+    margin-bottom: 30px
+    color: lighten($dark-font, 15)
+  &__list
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+  &__item
+    width: 300px
+    border: 1px solid rgba($dark, 0.1)
+    display: flex
+    flex-direction: column
+    align-items: center
+  &__img
+    width: 90%
+    margin: auto
+    padding: 10px
+    height: 200px
+    object-fit: contain
+  &__name
+    text-align: center
+    height: 60px
+    padding: 20px 5px 10px 5px
+    vertical-align: middle
+    font-size: 1.7rem
+
+  &__more
+    padding: 10px 20px
+    background-color: $first-color
+    color: $light
+    text-align: center
+    width: 50%
+    margin-bottom: 10px
+  &__price
+    font-size: 2rem
+    text-align: center
+    vertical-align: middle
+    padding: 5px 0 15px 0
+
+.main-converter
+  &__view
+    width: 100%
+    img
+      width: 100%
+      margin: auto
+  &__parameters
+    width: 100%
+  &__specifications
+    margin: auto
+
+
+.custom-select
+  width: 100%
+  position: relative
+  &__btn
+    width: 100%
+    padding: 10px 20px 10px 30px
+    font-size: 1.7rem
+    border: 1px solid rgba($dark-font, 0.2)
+    border-radius: 7px
+    margin-bottom: 20px
+    background-color: transparent
+    text-align: start
+
+
+  &__list
+    position: absolute
+    top: 41px
+    display: none
+    z-index: 100
+    width: 100%
+    background-color: #ffffff
+    border: 1px solid rgba(#4b4b4d, 0.8)
+  &__item
+    padding: 10px
+    cursor: pointer
+    transition: 0.08s all ease
+    &:hover
+      background-color: rgba(#4b4b4d, 0.3)
+      transition: 0.08s all ease
+

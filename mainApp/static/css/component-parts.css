@@ -1,0 +1,95 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.photo-line {
+  height: 20vh;
+  width: 100%;
+  background-size: cover !important; }
+  .photo-line::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); }
+
+.comp-parts {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px auto; }
+  .comp-parts__item {
+    width: 300px;
+    border: 1px solid rgba(49, 59, 68, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .comp-parts__img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; }
+  .comp-parts__name {
+    text-align: center;
+    height: 60px;
+    padding: 20px 5px 10px 5px;
+    vertical-align: middle;
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem; }
+  .comp-parts__more {
+    padding: 10px 20px;
+    background-color: #009AC6;
+    color: #f1f1f1;
+    text-align: center;
+    width: 50%;
+    margin-bottom: 10px; }
+    .comp-parts__more:hover {
+      transition: 0.1s all ease;
+      background-color: #252526; }
+  .comp-parts__price {
+    font-size: 2.3rem;
+    color: #009AC6;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 0 15px 0; }
+
+.comp-part {
+  width: 90%;
+  margin: 40px auto; }
+  .comp-part__img {
+    width: 30%;
+    height: 50vh;
+    object-fit: contain;
+    margin-right: 50px; }
+  .comp-part__name {
+    font-size: 2.7rem; }
+  .comp-part__card {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 0; }
+  .comp-part__right-part {
+    width: 60%; }
+  .comp-part__basket {
+    padding: 10px 20px;
+    background-color: #009AC6;
+    color: #f1f1f1;
+    margin-left: 10px;
+    font-size: 1.6rem;
+    transition: 0.1s all ease; }
+    .comp-part__basket:hover {
+      transition: 0.1s all ease;
+      background-color: #252526; }
+  .comp-part__price {
+    margin-top: 40px;
+    font-size: 2.5rem;
+    border-top: 1px solid #DCDCDC;
+    border-bottom: 1px solid #DCDCDC;
+    padding: 8px 0 15px 0;
+    text-align: center;
+    vertical-align: middle; }
+  .comp-part__descr {
+    font-size: 1.6rem;
+    color: rgba(37, 37, 38, 0.8);
+    margin-top: 25px;
+    white-space: pre-wrap; }

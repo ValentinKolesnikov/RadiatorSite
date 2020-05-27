@@ -1,0 +1,113 @@
+{% extends 'mainApp/wrapper.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/filter.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.filter.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
+        
+        <section class="radiator">
+           
+            <h1 class="radiator__name">Радиатор стальной трубчатый {{ radiator.model_name }}</h1>
+            <div class="radiator__filter">
+                
+                <div class="radiator__view">
+                    <img class="radiator__photo" src={{ radiator.photo.url }}>
+                    <div class="radiator__price">
+                        <span class="radiator__price-value">{{ radiator.price }} р</span>
+                        <a class="radiator__basket-adding" href="#">В корзину</a>
+                    </div>
+                    <h2 class="radiator__specifications-title">Характеристики</h2>
+                    <div class="radiator__specifications">
+                        <div class="radiator__specifications-name">
+                            <p>Мощность (50 / 60 / 70):</p>
+                            <p>Рабочее давление:</p>
+                            <p>Вес:</p>
+                        </div>
+                        <div class="radiator__specifications-value">
+                            <p>{{ radiator.power }} Вт</p>
+                            <p>{{ radiator.pressure }} атм</p>
+                            <p>{{ radiator.weight }} кг</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="radiator__parameters">
+                    <div class="radiator__parameters-top">
+                        <div class="radiator__measurings" id="filter-block">
+                            <div class="radiator__measurings-left">
+
+                                <p class="radiator__measuring-name">Производитель</p>
+                                 <div class="custom-select">
+                                    <button id="radiator-manufacturer" data-unit="" value="{{ radiator.manufacturer }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.manufacturer }}</button>
+                                    <ul class="custom-select__list">
+                                        {% for manufacturer in manufacturers %}
+                                            <li onclick="changeValue(this)" data-value="{{ manufacturer }}" class="custom-select__item" id="manufacturer-item">{{ manufacturer }}</li>
+                                        {% endfor %}
+                                        <li onclick="changeValue(this)" data-value="KZTO" class="custom-select__item" id="manufacturer-item">KZTO</li>
+                                    </ul>
+                                 </div>
+
+                                <p class="radiator__measuring-name">Высота</p>
+                                <div class="custom-select">
+                                    <button id="radiator-height" data-unit="мм" value="{{ radiator.height }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.height }} мм</button>
+                                    <ul class="custom-select__list" id="heights-list">
+                                        <li onclick="changeValue(this)" data-value="{{ radiator.height }}" class="custom-select__item" id="height-item">{{ radiator.height }} мм</li>
+                                    </ul>
+                                </div>
+                                <p class="radiator__measuring-name">Ширина</p>
+                                <div class="custom-select">
+                                    <button id="radiator-width" data-unit="мм" value="{{ radiator.width }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.width }} мм</button>
+                                    <ul class="custom-select__list" id="widths-list">
+                                        <li onclick="changeValue(this)" data-value="{{ radiator.width }}" class="custom-select__item" id="width-item">{{ radiator.width }} мм</li>
+                                    </ul>
+                                </div>
+
+                                
+                                
+                            </div>
+                            <div class="radiator__measurings-right">
+
+
+                                <p class="radiator__measuring-name">Глубина</p>
+                                <div class="custom-select">
+                                    <button id="radiator-depth" data-unit="мм" value="{{ radiator.depth }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.depth }} мм</button>
+                                    <ul class="custom-select__list" id="depths-list">
+                                        <li onclick="changeValue(this)" data-value="{{ radiator.depth }}" class="custom-select__item" id="depth-item">{{ radiator.depth }} мм</li>
+                                    </ul>
+                                </div>
+
+                                <p class="radiator__measuring-name">Подключение к трубам</p>
+                                <div class="custom-select">
+                                    <button id="radiator-connection" data-unit="" value="{{ radiator.connection_type }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.connection_type }}</button>
+                                    <ul class="custom-select__list" id="connections-list">
+                                        <li onclick="changeValue(this)" data-value="{{ radiator.connection_type }}" class="custom-select__item" id="connection-item">{{ radiator.connection_type }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="radiator__parameters-bottom">
+                        <h3>Описание:</h3>
+                        <pre class="radiator__description">{{ radiator.description }}</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        {% include 'catalog/includes/see-also.html' %}
+
+{% endblock %}
+
+{% block scripts %}
+    <script src={% static 'js/post-filter.js' %}></script>
+    <script src={% static 'js/steel-tubular.js' %}></script>
+    <script src={% static 'js/custom-select.js' %}></script>
+{% endblock %}

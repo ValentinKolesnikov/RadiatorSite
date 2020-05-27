@@ -1,0 +1,57 @@
+{% extends 'mainApp/wrapper.html' %}
+
+{% block title %}
+    {% load static %}
+    Каталог насенных конвекторов
+{% endblock %}
+
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/list.css' %}>
+{% endblock %}
+
+{% block content %}
+<section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
+
+        <section class="catalog">
+        
+            {% for info in information %}
+                <a href="{% url 'wall_convector_view' info.manufacturer_description.manufacturer.id %}" class="catalog__item">
+                    <img src="{{ info.manufacturer_description.photo.url }}" alt="{{ info.manufacturer_description.manufacturer }}" class="catalog__item-image">
+                    <h2 class="catalog__item-name">{{ info.manufacturer_description.manufacturer }}</h2>
+                    <p class="catalog__item-descr">{{ info.manufacturer_description.description }}</p>
+                    <div class="catalog__item-params">
+                        <div class="catalog__item-params-column">
+                            <p class="catalog__item-params-dark">Ширина:</p>
+                            <p>Высота:</p>
+                        </div>
+                        <div class="catalog__item-params-value-column">
+                            <p class="catalog__item-params-dark">
+                                {% if info.widths|length == 1 %}
+                                    {% for width in info.widths %}{{ width }} {% endfor %} мм
+                                {% else %}
+                                    {% for width in info.widths|slice:":-1" %}{{ width }}, {% endfor %}
+                                    {% for width in info.widths|slice:"-1:" %}{{ width }} мм{% endfor %}
+                                {% endif %}
+                            </p>
+                            <p> {% if info.heights|length != 1 %}
+                                    {% for height in info.heights|slice:":-1" %}{{ height }}, {% endfor %}
+                                    {% for height in info.heights|slice:"-1:" %}{{ height }} мм{% endfor %}
+                                {% else %}
+                                    {% for height in info.heights %}{{ height }} {% endfor %} мм
+                                {% endif %}
+                            </p>
+
+
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+
+        </section>
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{% static 'js/list.js' %}"></script>
+{% endblock %}

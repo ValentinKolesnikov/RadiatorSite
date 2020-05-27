@@ -1,0 +1,26 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block title %}
+    {{ component }}
+{% endblock %}
+
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/component-parts.css' %}>
+{% endblock %}
+
+{% block content %}
+    <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
+
+        <section class="comp-part">
+            <h2 class="comp-part__name">{{ component.name }}</h2>
+            <div class="comp-part__card">
+                <img src={{ component.photo.url }} alt="{{ component }}" class="comp-part__img">
+                <div class="comp-part__right-part">
+                    <p class="comp-part__descr">{{ component.description }}</p>
+                    <p class="comp-part__price">Цена: {{ component.price }} р.<a class="comp-part__basket" href="">В корзину</a></p>
+                </div>
+            </div>
+        </section>
+{% endblock %}
+
