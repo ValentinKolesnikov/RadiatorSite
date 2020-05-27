@@ -479,7 +479,7 @@ class RecessedConvector(models.Model):
         verbose_name_plural = "Встраиваемые конвекторы"
 
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE, verbose_name="Производитель")
-    model = models.ForeignKey(RecessedConvectorModel, "Модель", max_length=400)
+    model = models.ForeignKey(RecessedConvectorModel, verbose_name="Модель", on_delete=models.CASCADE)
     height = models.IntegerField("Высота")
     width = models.IntegerField("Ширина")
     length = models.IntegerField("Длина")
