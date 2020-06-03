@@ -1,0 +1,177 @@
+@import _colors
+
+.radiator-categories
+    margin: auto
+    margin-top: 20px
+    padding: 40px 0
+    display: flex
+    flex-direction: column
+    align-items: center
+    &__top
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+    &__bottom
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        position: relative
+        width: 25vw * 3
+        margin: auto
+        cursor: pointer
+        &::before
+            content: ''
+            display: block
+            position: absolute
+            width: 100%
+            height: 100%
+            z-index: 4
+            transition: 0.3s all ease
+            transform: scale(0)
+        &:hover::before
+            background-color: rgba(0, 0, 0, 0.7)
+            transition: 0.3s all ease
+            transform: scale(1)
+        &:hover
+            .radiator-categories__complect-name
+                display: block
+            
+        .radiator-categories__item::before
+            display: none
+    &__item
+        width: 25vw
+        height: 25vw
+        background-size: contain !important
+        position: relative
+        cursor: pointer
+        z-index: 2
+        // box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)
+        &::before
+            content: ''
+            display: block
+            position: absolute
+            width: 100%
+            height: 100%
+            z-index: 1
+            transition: 0.3s all ease
+            transform: scale(0)
+        &:hover::before
+            background-color: rgba(0, 0, 0, 0.7)
+            transition: 0.3s all ease
+            transform: scale(1)
+        &:hover
+            .radiator-categories__radiator-name
+                display: block
+            
+        img
+            position: absolute
+            width: 80%
+            height: 80%
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+    &__item-bottom
+        width: 100%
+        height: 25vw
+        background-size: contain !important
+        position: relative
+        cursor: pointer
+        z-index: 2
+        // box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)
+        img
+            position: absolute
+            width: 75%
+            height: 75%
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+    &__radiator-name
+        position: absolute
+        color: $light-font
+        z-index: 2
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 100%
+        text-align: center
+        font-size: 2.3rem
+        display: none
+        letter-spacing: 1px
+    &__complect-name
+        position: absolute
+        color: $light-font
+        z-index: 10
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 100%
+        text-align: center
+        font-size: 2.7rem
+        display: none
+        letter-spacing: 1px
+
+.item__dark-gray
+    background-color: $dark-gray !important
+
+.item__light-gray
+    background-color: $light-gray
+
+.description
+    // background-attachment: fixed !important
+    background-size: cover !important
+    height: 100vh
+    width: 100%
+    position: relative
+    &::before
+        content: ''
+        display: block
+        width: 100%
+        height: 100%
+        background-color: rgba(0,0,0,0.7)
+    &__text
+        color: $light-font
+        font-size: 3.3rem
+        font-weight: normal
+        // font-family: 'Playfair Display', serif
+        font-family: 'Merriweather', serif
+        line-height: 5.3rem
+        padding: 0 10px
+    &__text-block
+        position: absolute
+        width: 70%
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        text-align: center
+        
+
+.categories-headline
+    width: 75vw
+    margin: auto
+    color: $dark-font
+    margin-top: 100px
+    font-size: 3.7rem
+    text-align: center
+
+.our-advantages
+    width: 100%
+    background-color: $second-color
+    color: $light-font
+    position: relative
+    &__list
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        margin: auto
+        width: 75vw
+        position: relative
+    &__item
+        padding: 40px 0
+        font-size: 1.8rem
+        text-align: center
+        margin: 0 10px
+        i
+            display: block
+            text-align: center
+            font-size: 3.5rem
+            margin-bottom: 10px

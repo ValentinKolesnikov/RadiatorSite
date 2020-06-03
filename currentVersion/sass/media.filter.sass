@@ -1,0 +1,45 @@
+@import _colors
+
+
+@media screen and (max-width: 1000px)
+    .radiator
+        &__view
+            width: 100%
+        &__photo
+            width: 70%
+            margin: auto
+        &__parameters
+            width: 100%
+
+@media screen and (max-width: 580px)
+    .radiator
+        select
+            font-size: 1.6rem
+        &__specification
+            font-size: 1.8rem
+        &__measurings
+            padding: 0 10px
+        &__parameters-top
+            margin-top: 30px
+        &__color
+            padding: 0 10px
+
+@media screen and (max-width: 450px)
+    .radiator
+        &__parameters-bottom
+            flex-wrap: wrap
+        &__color
+            width: 100%
+            margin-bottom: 20px
+        &__connection
+            width: 100%
+            padding: 0 10px
+    .extended-selection-con__list
+        width: 80%
+    .extended-selection__list
+        width: 80%
+    .extended-selection-con__title
+        width: 80%
+    .extended-selection__title
+        width: 80%
+        

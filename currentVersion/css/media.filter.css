@@ -1,0 +1,38 @@
+@media screen and (max-width: 1000px) {
+  .radiator__view {
+    width: 100%; }
+  .radiator__photo {
+    width: 70%;
+    margin: auto; }
+  .radiator__parameters {
+    width: 100%; } }
+
+@media screen and (max-width: 580px) {
+  .radiator select {
+    font-size: 1.6rem; }
+  .radiator__specification {
+    font-size: 1.8rem; }
+  .radiator__measurings {
+    padding: 0 10px; }
+  .radiator__parameters-top {
+    margin-top: 30px; }
+  .radiator__color {
+    padding: 0 10px; } }
+
+@media screen and (max-width: 450px) {
+  .radiator__parameters-bottom {
+    flex-wrap: wrap; }
+  .radiator__color {
+    width: 100%;
+    margin-bottom: 20px; }
+  .radiator__connection {
+    width: 100%;
+    padding: 0 10px; }
+  .extended-selection-con__list {
+    width: 80%; }
+  .extended-selection__list {
+    width: 80%; }
+  .extended-selection-con__title {
+    width: 80%; }
+  .extended-selection__title {
+    width: 80%; } }

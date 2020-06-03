@@ -39,3 +39,17 @@ function fillEmptyParameters(list=[], paramsCount){
 
     return finalList;
 }
+
+function post_view_parameter_type(side='', lattice='', manufacturer='', model=''){
+    let xhr = new XMLHttpRequest();
+    let filterData = new FormData();
+    xhr.open("POST", window.location.href);
+    filterData.append('side', side);
+    filterData.append('lattice', lattice);
+    filterData.append('manufacturer', manufacturer);
+    filterData.append('model', model);
+
+    xhr.send(filterData);
+
+    xhr.onload = () => (document.body.innerHTML = xhr.responseText);
+}

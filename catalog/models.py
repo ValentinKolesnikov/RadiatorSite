@@ -33,7 +33,7 @@ class RecessedConvectorModel(models.Model):
         verbose_name = "Модель встаиваемого конвектора"
         verbose_name_plural = "Модели встаиваемых конвекторов"
 
-    name = models.CharField("Название", max_length=120)
+    name = models.CharField("Название", max_length=300)
 
     def __str__(self):
         return self.name
@@ -480,21 +480,31 @@ class RecessedConvector(models.Model):
 
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE, verbose_name="Производитель")
     model = models.ForeignKey(RecessedConvectorModel, verbose_name="Модель", on_delete=models.CASCADE)
-    height = models.IntegerField("Высота")
-    width = models.IntegerField("Ширина")
-    length = models.IntegerField("Длина")
-    photo = models.ImageField("Картинка", blank=True, upload_to="wall_convector_images", default=None)
+    height = models.IntegerField("Высота, мм")
+    width = models.IntegerField("Ширина, мм")
+    length_unit = models.IntegerField("Единица длинны, мм", default=None)
+    min_length = models.IntegerField("Минимальная длинна, мм", default=None)
+    max_length = models.IntegerField("Максимальная длинна, мм", default=None)
+    lattice = models.ForeignKey(LatticeType, verbose_name="Тип решетки", on_delete=models.CASCADE, default=None)
+    side = models.ForeignKey(SideType, verbose_name="Тип бортика", on_delete=models.CASCADE, default=None)
+    photo = models.ImageField("Картинка вид сверху", blank=True, upload_to="wall_convector_images", default=None)
+    main_photo = models.ImageField("Общая картинка (вид в профиль)", blank=True, upload_to="wall_convector_images",
+                                   default=None, null=True)
     description = models.TextField("Описание")
-    temperature = models.FloatField("Максимальная рабочая температура")
-    pressure = models.FloatField("Максимальное рабочее давление")
-    heat_output = models.FloatField("Выход тепла")
-    surface_temperature = models.FloatField("Максимальная температура поверхности")
-    connection = models.CharField("Подключение", max_length=200)
-    price = models.FloatField("Цена", default=0)
+    price = models.FloatField("Цена за единицу длинны", default=0)
     connection_type = models.ForeignKey(ConnectionType, on_delete=models.CASCADE, verbose_name="Тип подключения")
 
+    metal_thickness = models.FloatField("Толщина меттала, мм", null=True, default=None, blank=True)
+    lattice_type = models.FloatField("Шаг ламелей решетки, мм", null=True, default=None, blank=True)
+    presence_of_ribs = models.CharField("Наличие ребер жесткости", max_length=300, null=True, default=None, blank=True)
+    temperature = models.FloatField("Максимальная рабочая температура", null=True, default=None, blank=True)
+    pressure = models.FloatField("Максимальное рабочее давление", null=True, default=None, blank=True)
+    heat_output = models.FloatField("Выход тепла", null=True, default=None, blank=True)
+    surface_temperature = models.FloatField("Максимальная температура поверхности", null=True, default=None, blank=True)
+    connection = models.CharField("Подключение", max_length=200, null=True, default=None, blank=True)
+
     def __str__(self):
-        return self.model
+        return f'{self.manufacturer.name} {self.model.name}'
 
     def show_image(self):
         if self.photo:

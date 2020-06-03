@@ -47,6 +47,9 @@ class WallConvectorAdmin(admin.ModelAdmin):
     list_display = ('model_name', 'manufacturer', 'show_image')
     list_filter = ['manufacturer']
 
+class RecessedConvectorAdmin(admin.ModelAdmin):
+    list_display = ('manufacturer', 'model', 'show_image')
+    list_filter = ['manufacturer']
 
 class ManufacturerDescriptionAdmin(admin.ModelAdmin):
     list_display = ('manufacturer', 'radiator_type', 'description', 'show_image')
@@ -64,9 +67,13 @@ admin.site.register(SteelTubularRadiator, SteelTubularAdmin)
 admin.site.register(SteelTubularKZTORadiator, SteelTubularKZTOAdmin)
 admin.site.register(FloorConvector, FloorConvectorAdmin)
 admin.site.register(WallConvector, WallConvectorAdmin)
+admin.site.register(RecessedConvector, RecessedConvectorAdmin)
 admin.site.register(ComponentPart, ComponentPartAdmin)
 admin.site.register(ComponentType)
 admin.site.register(ApplianceType)
+admin.site.register(LatticeType)
+admin.site.register(RecessedConvectorModel)
+admin.site.register(SideType)
 admin.site.register(Color)
 
 
