@@ -20,7 +20,7 @@ urlpatterns = [
          name="wall_convector_view"),
     path('radiators/convector-categories/recessed', views.recessed_convector_list_view, name="recessed_convector_list_view"),
     path('radiators/convector-categories/recessed/<int:manufacturer_id>', views.recessed_convector_view,
-         name="wall_convector_view"),
+         name="recessed_convector_view"),
     path('component-parts/', views.components_list_view, name="components_list_view"),
     path('component-parts/<int:component_type_id>/', views.component_type_list_view, name="component_type_list_view"),
     path('component-parts/<int:component_type_id>/<int:component_id>', views.component_page_view,

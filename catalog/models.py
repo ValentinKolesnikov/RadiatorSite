@@ -155,6 +155,9 @@ class ComponentPart(models.Model):
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
 
+    def get_description(self):
+        return f'Комплектующее {self.manufacturer.name} {self.name}\n' \
+               f'Тип: {self.type.name}\n'
 
 class AluminiumRadiator(models.Model):
     class Meta:
@@ -189,6 +192,14 @@ class AluminiumRadiator(models.Model):
 
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
+
+    def get_description(self):
+        return f'Радиатор Алюминиевый {self.manufacturer.name} {self.model_name}\n' \
+               f'Ширина: {self.width}\n' \
+               f'Высота: {self.height}\n' \
+               f'Глубина: {self.depth}\n' \
+               f'Межосевое расстояние: {self.center_distance}\n' \
+               f'Подключение: {self.connection_type.name}'
 
 
 class BimetalRadiator(models.Model):
@@ -227,6 +238,14 @@ class BimetalRadiator(models.Model):
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
 
+    def get_description(self):
+        return f'Радиатор Биметаллический {self.manufacturer.name} {self.model_name}\n' \
+               f'Ширина: {self.width}\n' \
+               f'Высота: {self.height}\n' \
+               f'Глубина: {self.depth}\n' \
+               f'Межосевое расстояние: {self.center_distance}\n' \
+               f'Подключение: {self.connection_type.name}'
+
 
 class DesignRadiator(models.Model):
     class Meta:
@@ -259,6 +278,11 @@ class DesignRadiator(models.Model):
 
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
+
+    def get_description(self):
+        return f'Дизайн-радиатор {self.manufacturer.name} {self.model_name}\n' \
+               f'Ширина: {self.width}\n' \
+               f'Высота: {self.height}'
 
 
 class SteelPanelRadiator(models.Model):
@@ -295,6 +319,14 @@ class SteelPanelRadiator(models.Model):
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
 
+    def get_description(self):
+        return f'Стальной панельный радиатор {self.manufacturer.name} {self.model_name}\n' \
+               f'Ширина: {self.width}\n' \
+               f'Высота: {self.height}\n' \
+               f'Глубина: {self.depth}\n' \
+               f'Межосевое расстояние: {self.center_distance}\n' \
+               f'Подключение: {self.connection_type.name}'
+
 
 class SteelTubularRadiator(models.Model):
     class Meta:
@@ -328,6 +360,13 @@ class SteelTubularRadiator(models.Model):
 
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
+
+    def get_description(self):
+        return f'Стальной трубчатый радиатор {self.manufacturer.name} {self.model_name}\n' \
+               f'Ширина: {self.width}\n' \
+               f'Высота: {self.height}\n' \
+               f'Глубина: {self.depth}\n' \
+               f'Подключение: {self.connection_type.name}'
 
 
 class SteelTubularKZTORadiator(models.Model):
@@ -364,6 +403,12 @@ class SteelTubularKZTORadiator(models.Model):
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
 
+    def get_description(self):
+        return f'Стальной трубчатый радиатор {self.manufacturer_name} {self.model_name}\n' \
+               f'Тип прибора: {self.appliance_type.name}' \
+               f'Длина: {self.length}\n' \
+               f'Монтажный размер: {self.mounting_size}\n' \
+               f'Подключение: {self.connection_type.name}'
 
 class CostIronRadiator(models.Model):
     class Meta:
@@ -398,6 +443,14 @@ class CostIronRadiator(models.Model):
 
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
+
+    def get_description(self):
+        return f'Чугунный радиатор {self.manufacturer.name} {self.model_name}\n' \
+               f'Ширина: {self.width}\n' \
+               f'Высота: {self.height}\n' \
+               f'Глубина: {self.depth}\n' \
+               f'Межосевое расстояние: {self.center_distance}\n' \
+               f'Подключение: {self.connection_type.name}'
 
 
 class FloorConvector(models.Model):
@@ -435,6 +488,13 @@ class FloorConvector(models.Model):
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
 
+    def get_description(self):
+        return f'Конвектор напольный {self.manufacturer.name} {self.model_name}\n' \
+               f'Ширина: {self.width}\n' \
+               f'Высота: {self.height}\n' \
+               f'Глубина: {self.length}\n' \
+               f'Подключение: {self.connection_type.name}'
+
 
 class WallConvector(models.Model):
     class Meta:
@@ -471,6 +531,12 @@ class WallConvector(models.Model):
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
 
+    def get_description(self):
+        return f'Конвектор настенный {self.manufacturer.name} {self.model_name}\n' \
+               f'Ширина: {self.width}\n' \
+               f'Высота: {self.height}\n' \
+               f'Глубина: {self.length}\n' \
+               f'Подключение: {self.connection_type.name}'
 
 class RecessedConvector(models.Model):
     class Meta:
@@ -516,3 +582,26 @@ class RecessedConvector(models.Model):
 
     show_image.short_description = 'Изображение'
     show_image.allow_tags = True
+
+    def get_description(self):
+        return f'Конвектор напольный {self.manufacturer.name} {self.model.name}\n' \
+               f'Ширина: {self.width}\n' \
+               f'Высота: {self.height}\n' \
+               f'Решетка: {self.lattice.name}\n' \
+               f'Бортик: {self.side.name}\n' \
+               f'Подключение: {self.connection_type.name}'
+
+
+RADIATOR_CLASSES = {
+    'aluminium': AluminiumRadiator,
+    'bimetal': BimetalRadiator,
+    'design': DesignRadiator,
+    'steel_panel': SteelPanelRadiator,
+    'steel_tubular_kzto': SteelTubularKZTORadiator,
+    'steel_tubular': SteelTubularRadiator,
+    'cost_iron': CostIronRadiator,
+    'recessed': RecessedConvector,
+    'floor': FloorConvector,
+    'wall': WallConvector,
+    'components': ComponentPart
+}

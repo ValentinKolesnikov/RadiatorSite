@@ -1,12 +1,13 @@
 .basket {
   width: 90%;
+  min-height: 100vh;
   margin: 40px auto; }
   .basket__list {
     display: flex;
     flex-direction: column; }
   .basket__item {
     width: 100%;
-    heigth: 300px;
+    min-height: 250px;
     border-top: 1px solid rgba(37, 37, 38, 0.1);
     border-bottom: 1px solid rgba(37, 37, 38, 0.1);
     display: flex;
@@ -15,8 +16,8 @@
     align-items: center;
     padding: 20px 0; }
   .basket__image {
-    width: 23%;
-    height: 20%; }
+    width: 10%;
+    max-height: 300px; }
   .basket__text {
     width: 40%; }
   .basket__name {
@@ -28,8 +29,19 @@
     margin-bottom: 10px;
     color: rgba(37, 37, 38, 0.8); }
   .basket__count {
-    width: 50px;
-    font-size: 1.7rem; }
+    width: 70px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around; }
+    .basket__count-current {
+      font-size: 2.5rem; }
+    .basket__count-add, .basket__count-remove {
+      background-color: transparent;
+      border: none;
+      font-size: 3rem;
+      color: #009AC6;
+      cursor: pointer; }
   .basket__price-title {
     text-align: center;
     margin-bottom: 10px;
@@ -42,11 +54,14 @@
     font-size: 1.9rem;
     cursor: pointer; }
   .basket__results {
-    margin-top: 30px;
+    width: 90%;
+    margin: auto;
+    padding: 15px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: center; }
+    align-content: center;
+    align-items: center; }
     .basket__results p {
       vertical-align: middle;
       color: rgba(37, 37, 38, 0.7); }
@@ -64,3 +79,11 @@
     color: #009AC6;
     text-align: center;
     margin-left: 10px; }
+
+.result-amount {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4); }

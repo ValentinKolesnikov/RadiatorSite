@@ -711,4 +711,4 @@ def wall_convector_list_view(request):
 
 def recessed_convector_list_view(request):
     args = get_list_information(radiators_count=3, radiators_class=RecessedConvector, radiator_type_id=3)
-    return render(request, 'catalog/lists/wall_convector.html', args)
+    return render(request, 'catalog/lists/recessed_convector.html', args)

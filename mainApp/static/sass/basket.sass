@@ -1,69 +1,107 @@
 @import _colors
 
 .basket
+  width: 90%
+  min-height: 100vh
+  margin: 40px auto
+
+  &__list
+    display: flex
+    flex-direction: column
+
+  &__item
+    width: 100%
+    min-height: 250px
+    border-top: 1px solid rgba($dark-font, 0.1)
+    border-bottom: 1px solid rgba($dark-font, 0.1)
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+    padding: 20px 0
+
+  &__image
+    width: 10%
+    max-height: 300px
+
+  &__text
+    width: 40%
+
+  &__name
+    margin-bottom: 10px
+
+  &__descr
+    color: rgba($dark-font, 0.8)
+
+  &__count-type
+    text-align: center
+    margin-bottom: 10px
+    color: rgba($dark-font, 0.8)
+
+  &__count
+    width: 70px
+    display: flex
+    align-items: center
+    align-content: center
+    justify-content: space-around
+    &-current
+      font-size: 2.5rem
+    &-add, &-remove
+      background-color: transparent
+      border: none
+      font-size: 3rem
+      color: $first-color
+      cursor: pointer
+
+  &__price-title
+    text-align: center
+    margin-bottom: 10px
+    color: rgba($dark-font, 0.8)
+
+  &__price
+    font-size: 2.2rem
+    color: $first-color
+    text-align: center
+
+  &__delete i
+    font-size: 1.9rem
+    cursor: pointer
+
+  &__results
     width: 90%
-    margin: 40px auto
-    &__list
-        display: flex
-        flex-direction: column
-    &__item
-        width: 100%
-        heigth: 300px
-        border-top: 1px solid rgba($dark-font, 0.1)
-        border-bottom: 1px solid rgba($dark-font, 0.1)
-        display: flex
-        flex-wrap: wrap
-        justify-content: space-between
-        align-items: center
-        padding: 20px 0
-    &__image
-        width: 23%
-        height: 20%
-    &__text
-        width: 40%
-    &__name
-        margin-bottom: 10px
-    &__descr
-        color: rgba($dark-font, 0.8)
-    &__count-type
-        text-align: center
-        margin-bottom: 10px
-        color: rgba($dark-font, 0.8)
-    &__count
-        width: 50px
-        font-size: 1.7rem
-    &__price-title
-        text-align: center
-        margin-bottom: 10px
-        color: rgba($dark-font, 0.8)
-    &__price
-        font-size: 2.2rem
-        color: $first-color
-        text-align: center
-    &__delete i
-        font-size: 1.9rem
-        cursor: pointer
-    &__results
-        margin-top: 30px
-        display: flex
-        flex-wrap: wrap
-        justify-content: space-between
-        align-content: center
-        p
-            vertical-align: middle
-            color: rgba($dark-font, 0.7)
-    &__checkout
-        padding: 10px 20px
-        background-color: $first-color
-        color: $light 
-        margin-left: 10px
-        cursor: pointer
-        &:hover
-            transition: 0.1s all ease
-            background-color: $dark-font
-    &__result-price
-        font-size: 2.2rem
-        color: $first-color
-        text-align: center
-        margin-left: 10px
-       
+    margin: auto
+    padding: 15px 0
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-content: center
+    align-items: center
+
+    p
+      vertical-align: middle
+      color: rgba($dark-font, 0.7)
+
+  &__checkout
+    padding: 10px 20px
+    background-color: $first-color
+    color: $light
+    margin-left: 10px
+    cursor: pointer
+
+    &:hover
+      transition: 0.1s all ease
+      background-color: $dark-font
+
+  &__result-price
+    font-size: 2.2rem
+    color: $first-color
+    text-align: center
+    margin-left: 10px
+
+.result-amount
+  width: 100%
+  position: sticky
+  bottom: 0
+  background-color: #fff
+  border-top: 1px solid rgba(0,0,0,0.4)
+  border-bottom: 1px solid rgba(0,0,0,0.4)

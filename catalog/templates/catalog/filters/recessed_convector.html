@@ -14,7 +14,8 @@
     <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
 
     <section class="radiator">
-
+        <div id="item-info" data-type="recessed" data-id="{{ radiator.id }}"
+             data-url="{% url 'add_product_view' %}"></div>
         <h1 class="radiator__name">Конвектор встраиваемый {{ radiator.manufacturer }} {{ radiator.model }}</h1>
         <div class="radiator__filter">
 
@@ -23,7 +24,7 @@
                 <div class="radiator__price">
                     <span class="radiator__price-value" id="price"
                           data-price="{{ radiator.price }}">{{ default_price|floatformat:2 }} р.</span>
-                    <a class="radiator__basket-adding" href="#">В корзину</a>
+                    <a class="radiator__basket-adding" id="add-cart-btn" onclick="add_to_cart()">В корзину</a>
                 </div>
 
             </div>

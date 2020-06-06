@@ -16,7 +16,7 @@
         <section class="catalog">
         
             {% for info in information %}
-                <a href="{% url 'recessed_convector_list_view' info.manufacturer_description.manufacturer.id %}" class="catalog__item">
+                <a href="{% url 'recessed_convector_view' info.manufacturer_description.manufacturer.id %}" class="catalog__item">
                     <img src="{{ info.manufacturer_description.photo.url }}" alt="{{ info.manufacturer_description.manufacturer }}" class="catalog__item-image">
                     <h2 class="catalog__item-name">{{ info.manufacturer_description.manufacturer }}</h2>
                     <p class="catalog__item-descr">{{ info.manufacturer_description.description }}</p>

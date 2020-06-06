@@ -1,0 +1,72 @@
+{% extends 'mainApp/wrapper.html' %}
+
+{% block title %}
+    Корзина
+{% endblock %}
+
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/basket.css' %}">
+
+{% endblock %}
+
+{% block content %}
+    <section class="photo-line"
+             style="background: url('/media/photo-line.png') center center no-repeat"></section>
+
+    <section class="basket">
+        <div class="basket__list">
+
+            {% for key, value in items.items %}
+
+                <div class="basket__item" id="{{ key }}">
+                    <img class="basket__image" src="{{ value.image }}" alt="">
+                    <div class="basket__text">
+
+                        <h2 class="basket__name">{{ value.name }}</h2>
+                        <p class="basket__descr">{{ value.description|truncatechars:170 }}</p>
+
+
+                    </div>
+                    <div class="basket__params">
+                        <p class="basket__count-type">Шт</p>
+                        <div class="basket__count">
+                            <button data-change-quantity-url="{% url 'change_quantity_view' %}"
+                                    onclick="removeQuantity(this)" class="basket__count-remove">&minus;
+                            </button>
+                            <span class="basket__count-current">{{ value.quantity }}</span>
+                            <button data-change-quantity-url="{% url 'change_quantity_view' %}"
+                                    onclick="addQuantity(this)" class="basket__count-add">+
+                            </button>
+
+                        </div>
+                        {#                        <input placeholder="{{ value.quantity }}" type="number" class="basket__count" value="{{ value.quantity }}">#}
+                    </div>
+                    <div class="basket__price-info">
+                        <p class="basket__price-title">Цена (1 шт.)</p>
+                        <p class="basket__price">{{ value.price }} р</p>
+                    </div>
+                    <div class="basket__delete">
+                        <i data-id="{{ key }}" data-remove-url="{% url 'remove_product_view' %}"
+                           onclick="removeItem(this)" class="far fa-trash-alt"></i>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </section>
+    <section class="result-amount">
+        <div class="basket__results">
+            <p>Итоговая сумма без учета доставки: <span
+                    class="basket__result-price">{{ total_price|floatformat:2 }} р</span></p>
+            <a class="basket__checkout">Оформить заказ</a>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/basket.js' %}"></script>
+{% endblock %}
+

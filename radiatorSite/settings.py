@@ -26,11 +26,12 @@ SECRET_KEY = '1s46%80xa))4h#dc@#6^rfpw9j%gn#tdhgl2zc6uqargvwuff+'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CART_SESSION_ID = ''
 
 # Application definition
 
 INSTALLED_APPS = [
+    'cart',
     'catalog',
     'mainApp',
     'django.contrib.admin',

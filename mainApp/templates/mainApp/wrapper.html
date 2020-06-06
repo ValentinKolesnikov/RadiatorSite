@@ -49,15 +49,19 @@
                         </ul>
                     </li>
                     <li class="main-header__nav-point"><a class="main-header__nav-link" href="#contacts"><i class="fas fa-address-book"></i>  Контакты</a></li>
-                    <li class="main-header__nav-point"><a class="main-header__nav-link" href="./basket.html"><i class="fas fa-shopping-basket"></i>  Корзина</a></li>
+                    <li class="main-header__nav-point"><a class="main-header__nav-link" href="{% url 'cart_view' %}"><i class="fas fa-shopping-basket"></i>  Корзина</a></li>
                 </ul>
             </div>
 
         </nav>
 
     </header>
-
-
+    <div id="mask"></div>
+    <div class="cart-success-added" id="success-cart">
+        <p class="cart-success-added__title">Товар успешно добавлен. <br> Желаете перейти в корзину?</p>
+        <a href="{% url 'cart_view' %}" class="cart-success-added__transport-btn">Перейти в корзину</a>
+        <button onclick="closeSuccessCart()" class="cart-success-added__exit-btn">&times;</button>
+    </div>
     <div class="content">
         {% block content %}
 

@@ -44,7 +44,8 @@
     padding: 10px 20px;
     background-color: #009AC6;
     color: #f1f1f1;
-    margin-left: 10px; }
+    margin-left: 10px;
+    cursor: pointer; }
     .radiator__basket-adding:hover {
       transition: 0.1s all ease;
       background-color: #252526; }

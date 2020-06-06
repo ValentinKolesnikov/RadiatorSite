@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block before_body %}
-<div class="extended-selection">
+    <div class="extended-selection">
         <div class="extended-selection__mask"></div>
         <div class="extended-selection__title">Выберете цвет</div>
         <div class="extended-selection__list">
@@ -25,117 +25,148 @@
 {% endblock %}
 
 {% block content %}
- <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
+    <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
 
-        <section class="radiator">
+    <section class="radiator">
+        <div id="item-info" data-type="bimetal" data-id="{{ radiator.id }}"
+             data-url="{% url 'add_product_view' %}"></div>
+        <h1 class="radiator__name">Биметаллический радиатор {{ radiator.model_name }}</h1>
+        <div class="radiator__filter">
 
-            <h1 class="radiator__name">Биметаллический радиатор {{ radiator.model_name }}</h1>
-            <div class="radiator__filter">
+            <div class="radiator__view">
+                <img class="radiator__photo" src="{{ radiator.photo.url }}">
 
-                <div class="radiator__view">
-                    <img class="radiator__photo" src="{{ radiator.photo.url }}">
-
-                    <div class="radiator__price">
-                        <span class="radiator__price-value">Цена: {{ radiator.price }} руб.</span>
-                        <a class="radiator__basket-adding" href="#">В корзину</a>
-                    </div>
-                    <h2 class="radiator__specifications-title">Характеристики</h2>
-                        <div class="radiator__specifications">
-                            <div class="radiator__specifications-name">
-                                <p>Мощность (50 / 60 / 70):</p>
-                                <p>Рабочее давление:</p>
-                                <p>Вес:</p>
-                            </div>
-                            <div class="radiator__specifications-value">
-                                <p>{{ radiator.power }} Вт</p>
-                                <p>{{ radiator.pressure }} атм</p>
-                                <p>{{ radiator.weight }} кг</p>
-                            </div>
-                        </div>
+                <div class="radiator__price">
+                    <span class="radiator__price-value">Цена: {{ radiator.price }} руб.</span>
+                    <a class="radiator__basket-adding" id="add-cart-btn" onclick="add_to_cart()">В корзину</a>
                 </div>
-                <div class="radiator__parameters">
-                    <div class="radiator__parameters-top">
-                        <div class="radiator__measurings">
-                            <div class="radiator__measurings-left">
-
-                                <p class="radiator__measuring-name">Производитель</p>
-                                 <div class="custom-select">
-                                    <button id="radiator-manufacturer" data-unit="" value="{{ radiator.manufacturer }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.manufacturer }}</button>
-                                    <ul class="custom-select__list">
-                                        {% for manufacturer in manufacturers %}
-                                            <li onclick="changeValue(this)" data-value="{{ manufacturer }}" class="custom-select__item" id="manufacturer-item">{{ manufacturer }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                 </div>
-
-
-                                <p class="radiator__measuring-name">Высота</p>
-                                <div class="custom-select">
-                                    <button id="radiator-height" data-unit="мм" value="{{ radiator.height }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.height }} мм</button>
-                                    <ul class="custom-select__list" id="heights-list">
-                                        <li onclick="changeValue(this)" data-value="{{ radiator.height }}" class="custom-select__item" id="height-item">{{ radiator.height }} мм</li>
-                                    </ul>
-                                </div>
-
-                                <p class="radiator__measuring-name">Ширина</p>
-                                <div class="custom-select">
-                                    <button id="radiator-width" data-unit="мм" value="{{ radiator.width }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.width }} мм</button>
-                                    <ul class="custom-select__list" id="widths-list">
-                                        <li onclick="changeValue(this)" data-value="{{ radiator.width }}" class="custom-select__item" id="width-item">{{ radiator.width }} мм</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="radiator__measurings-right">
-
-                               <p class="radiator__measuring-name">Глубина</p>
-                                <div class="custom-select">
-                                    <button id="radiator-depth" data-unit="мм" value="{{ radiator.depth }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.depth }} мм</button>
-                                    <ul class="custom-select__list" id="depths-list">
-                                        <li onclick="changeValue(this)" data-value="{{ radiator.depth }}" class="custom-select__item" id="depth-item">{{ radiator.depth }} мм</li>
-                                    </ul>
-                                </div>
-
-                                <p class="radiator__measuring-name">Межосевое расстояние</p>
-                                <div class="custom-select">
-                                    <button id="radiator-distance" data-unit="мм" value="{{ radiator.center_distance }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.center_distance }} мм</button>
-                                    <ul class="custom-select__list" id="distances-list">
-                                        <li onclick="changeValue(this)" data-value="{{ radiator.center_distance }}" class="custom-select__item" id="distance-item">{{ radiator.center_distance }} мм</li>
-                                    </ul>
-                                </div>
-
-                                <p class="radiator__measuring-name">Подключение к трубам</p>
-                                <div class="custom-select">
-                                    <button id="radiator-connection" data-unit="" value="{{ radiator.connection_type }}" class="custom-select__btn" onfocus="showList(this)">{{ radiator.connection_type }}</button>
-                                    <ul class="custom-select__list" id="connections-list">
-                                        <li onclick="changeValue(this)" data-value="{{ radiator.connection_type }}" class="custom-select__item" id="connection-item">{{ radiator.connection_type }}</li>
-                                    </ul>
-                                </div>
-
-                                <p class="radiator__measuring-name">Цвет</p>
-                                <div class="custom-select">
-                                    <button id="radiator-color" data-unit="" value="" class="custom-select__btn" onfocus="showList(this)">Выберите цвет</button>
-                                    <ul class="custom-select__list" id="colors-list">
-                                        {% for color in radiator.colors.all %}
-                                            <li onclick="changeValue(this)" data-value="{{ color }}" class="custom-select__item" id="color-item"><div style="background-color: #{{ color.code }};" class="extended-selection__color-block"></div>{{ color }}</li>
-                                        {% endfor %}
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                <h2 class="radiator__specifications-title">Характеристики</h2>
+                <div class="radiator__specifications">
+                    <div class="radiator__specifications-name">
+                        <p>Мощность (50 / 60 / 70):</p>
+                        <p>Рабочее давление:</p>
+                        <p>Вес:</p>
                     </div>
-                    <div class="radiator__parameters-bottom">
-                        <h3>Описание:</h3>
-                        <pre class="radiator__description">{{ radiator.description }}</pre>
-
+                    <div class="radiator__specifications-value">
+                        <p>{{ radiator.power }} Вт</p>
+                        <p>{{ radiator.pressure }} атм</p>
+                        <p>{{ radiator.weight }} кг</p>
                     </div>
                 </div>
+            </div>
+            <div class="radiator__parameters">
+                <div class="radiator__parameters-top">
+                    <div class="radiator__measurings">
+                        <div class="radiator__measurings-left">
 
+                            <p class="radiator__measuring-name">Производитель</p>
+                            <div class="custom-select">
+                                <button id="radiator-manufacturer" data-unit="" value="{{ radiator.manufacturer }}"
+                                        class="custom-select__btn"
+                                        onfocus="showList(this)">{{ radiator.manufacturer }}</button>
+                                <ul class="custom-select__list">
+                                    {% for manufacturer in manufacturers %}
+                                        <li onclick="changeValue(this)" data-value="{{ manufacturer }}"
+                                            class="custom-select__item" id="manufacturer-item">{{ manufacturer }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+
+                            <p class="radiator__measuring-name">Высота</p>
+                            <div class="custom-select">
+                                <button id="radiator-height" data-unit="мм" value="{{ radiator.height }}"
+                                        class="custom-select__btn" onfocus="showList(this)">{{ radiator.height }} мм
+                                </button>
+                                <ul class="custom-select__list" id="heights-list">
+                                    <li onclick="changeValue(this)" data-value="{{ radiator.height }}"
+                                        class="custom-select__item" id="height-item">{{ radiator.height }} мм
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <p class="radiator__measuring-name">Ширина</p>
+                            <div class="custom-select">
+                                <button id="radiator-width" data-unit="мм" value="{{ radiator.width }}"
+                                        class="custom-select__btn" onfocus="showList(this)">{{ radiator.width }} мм
+                                </button>
+                                <ul class="custom-select__list" id="widths-list">
+                                    <li onclick="changeValue(this)" data-value="{{ radiator.width }}"
+                                        class="custom-select__item" id="width-item">{{ radiator.width }} мм
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="radiator__measurings-right">
+
+                            <p class="radiator__measuring-name">Глубина</p>
+                            <div class="custom-select">
+                                <button id="radiator-depth" data-unit="мм" value="{{ radiator.depth }}"
+                                        class="custom-select__btn" onfocus="showList(this)">{{ radiator.depth }} мм
+                                </button>
+                                <ul class="custom-select__list" id="depths-list">
+                                    <li onclick="changeValue(this)" data-value="{{ radiator.depth }}"
+                                        class="custom-select__item" id="depth-item">{{ radiator.depth }} мм
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <p class="radiator__measuring-name">Межосевое расстояние</p>
+                            <div class="custom-select">
+                                <button id="radiator-distance" data-unit="мм" value="{{ radiator.center_distance }}"
+                                        class="custom-select__btn"
+                                        onfocus="showList(this)">{{ radiator.center_distance }} мм
+                                </button>
+                                <ul class="custom-select__list" id="distances-list">
+                                    <li onclick="changeValue(this)" data-value="{{ radiator.center_distance }}"
+                                        class="custom-select__item" id="distance-item">{{ radiator.center_distance }} мм
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <p class="radiator__measuring-name">Подключение к трубам</p>
+                            <div class="custom-select">
+                                <button id="radiator-connection" data-unit="" value="{{ radiator.connection_type }}"
+                                        class="custom-select__btn"
+                                        onfocus="showList(this)">{{ radiator.connection_type }}</button>
+                                <ul class="custom-select__list" id="connections-list">
+                                    <li onclick="changeValue(this)" data-value="{{ radiator.connection_type }}"
+                                        class="custom-select__item"
+                                        id="connection-item">{{ radiator.connection_type }}</li>
+                                </ul>
+                            </div>
+
+                            <p class="radiator__measuring-name">Цвет</p>
+                            <div class="custom-select">
+                                <button id="radiator-color" data-unit="" value="" class="custom-select__btn"
+                                        onfocus="showList(this)">Выберите цвет
+                                </button>
+                                <ul class="custom-select__list" id="colors-list">
+                                    {% for color in radiator.colors.all %}
+                                        <li onclick="changeValue(this)" data-value="{{ color }}"
+                                            class="custom-select__item" id="color-item">
+                                            <div style="background-color: #{{ color.code }};"
+                                                 class="extended-selection__color-block"></div>
+                                            {{ color }}</li>
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="radiator__parameters-bottom">
+                    <h3>Описание:</h3>
+                    <pre class="radiator__description">{{ radiator.description }}</pre>
+
+                </div>
             </div>
 
-        </section>
-        {% include 'catalog/includes/see-also.html' %}
+        </div>
+
+    </section>
+    {% include 'catalog/includes/see-also.html' %}
 {% endblock %}
 
 
