@@ -41,6 +41,7 @@ function addQuantity(btn) {
     productData.append('id', btn.parentElement.parentElement.parentElement.id);
     productData.append('add', true);
 
+
     xhr.send(productData);
 
     xhr.onload = () => (document.body.innerHTML = xhr.responseText);

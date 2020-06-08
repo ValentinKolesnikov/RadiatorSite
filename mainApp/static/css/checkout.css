@@ -1,0 +1,34 @@
+.checkout-block {
+  width: 100%;
+  position: relative;
+  padding: 40px; }
+  .checkout-block__form {
+    width: 35%;
+    display: flex;
+    flex-direction: column; }
+    .checkout-block__form label {
+      color: #009AC6;
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 0.7rem; }
+    .checkout-block__form input[type="text"] {
+      border: 1px solid #DCDCDC;
+      padding: 7px; }
+    .checkout-block__form input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #009AC6;
+      color: #f1f1f1;
+      width: 150px;
+      margin-top: 2rem;
+      cursor: pointer;
+      transition: 0.1s all ease;
+      border: none; }
+      .checkout-block__form input[type="submit"]:hover {
+        transition: 0.1s all ease;
+        background-color: #252526; }
+  .checkout-block__title {
+    font-size: 3rem;
+    font-weight: 100;
+    color: #4b4b4d;
+    border-bottom: 1px solid #DCDCDC;
+    width: 35%; }

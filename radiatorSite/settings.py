@@ -34,6 +34,14 @@ DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 ALLOWED_HOSTS = ['https://git.heroku.com/radiator-site.git']
 CART_SESSION_ID = ''
 
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'behumbleplez@gmail.com'
+EMAIL_HOST_PASSWORD = 'Iwbal2030'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -1,6 +1,6 @@
 .basket {
   width: 90%;
-  min-height: 100vh;
+  min-height: 60vh;
   margin: 40px auto; }
   .basket__list {
     display: flex;

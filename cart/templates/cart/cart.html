@@ -60,7 +60,7 @@
         <div class="basket__results">
             <p>Итоговая сумма без учета доставки: <span
                     class="basket__result-price">{{ total_price|floatformat:2 }} р</span></p>
-            <a class="basket__checkout">Оформить заказ</a>
+            <a class="basket__checkout" href="{% url 'checkout_view' %}">Оформить заказ</a>
         </div>
     </section>
 

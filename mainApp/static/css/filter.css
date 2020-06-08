@@ -95,7 +95,9 @@
     color: rgba(37, 37, 38, 0.8);
     text-align: justify;
     margin: 15px 0 70px 0;
-    white-space: pre-wrap; }
+    white-space: pre-wrap;
+    font-family: 'Roboto', sans-serif;
+    text-indent: 25px; }
   .radiator__selected-color {
     display: flex; }
     .radiator__selected-color-block {

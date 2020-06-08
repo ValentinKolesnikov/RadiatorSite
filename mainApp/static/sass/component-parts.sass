@@ -1,21 +1,6 @@
 @import _colors
 
 
-.content
-    display: flex
-    flex-direction: column
-    align-items: center
-.photo-line
-    height: 20vh
-    width: 100%
-    background-size: cover !important
-    &::before
-        content: ''
-        display: block
-        width: 100%
-        height: 100%
-        background-color: rgba(0,0,0,0.7)
-
 .comp-parts
     width: 90%
     display: flex
@@ -75,26 +60,28 @@
     &__right-part
         width: 60%
     &__basket
+        display: inline-block
         padding: 10px 20px
         background-color: $first-color
         color: $light 
         margin-left: 10px
         font-size: 1.6rem
         transition: 0.1s all ease
+        cursor: pointer
         &:hover
             transition: 0.1s all ease
             background-color: $dark-font
             
     &__price
-        margin-top: 40px
+        display: inline-block
         font-size: 2.5rem
-        border-top: 1px solid $dark-gray
-        border-bottom: 1px solid $dark-gray
         padding: 8px 0 15px 0
         text-align: center
         vertical-align: middle
+        color: $dark
     &__descr
         font-size: 1.6rem
         color: rgba($dark-font, 0.8)
         margin-top: 25px
         white-space: pre-wrap
+        margin-bottom: 3rem

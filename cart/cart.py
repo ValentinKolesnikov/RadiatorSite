@@ -23,7 +23,7 @@ class Cart(object):
             self.items[id]['quantity'] = 1
         self.save()
 
-    def add(self, id, type):
+    def add(self, id, type, more):
         cart_id = f'{type}{id}'
         item_class = RADIATOR_CLASSES[type]
         item = item_class.objects.get(id=id)
@@ -32,10 +32,10 @@ class Cart(object):
             self.items[cart_id] = {
                 'name': item.__str__(),
                 'image': item.photo.url,
-                'price': item.price,
+                'price': item.price if not type == 'recessed' else item.price*float(more),
                 'quantity': 1,
                 'description': item.description,
-                'options': item.get_description()
+                'options': f'{item.get_description()}\nЦвет: {more}' if type == "design" or type == "bimetal" else item.get_description()
             }
         self.save()
 
