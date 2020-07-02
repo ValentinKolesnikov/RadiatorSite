@@ -47,7 +47,8 @@
     object-fit: contain;
     margin-right: 50px; }
   .comp-part__name {
-    font-size: 2.7rem; }
+    font-size: 2.7rem;
+    font-weight: 400; }
   .comp-part__card {
     display: flex;
     flex-wrap: wrap;

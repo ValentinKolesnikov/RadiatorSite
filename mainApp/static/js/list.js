@@ -1,24 +1,24 @@
-
-$(".comp-parts__name").text(function(i, text) {
-
-    if (text.length >= 70) {
-      text = text.substring(0, 70);
-      let lastIndex = text.lastIndexOf(" ");
-      text = text.substring(0, lastIndex) + '...';
-    }
-    
-    $(this).text(text);
-    
-  });
-
-$(".catalog__item-descr").text(function(i, text) {
-
-  if (text.length >= 90) {
-    text = text.substring(0, 90);
-    let lastIndex = text.lastIndexOf(" ");
-    text = text.substring(0, lastIndex) + '...';
-  }
-  
-  $(this).text(text);
-  
+
+$(".comp-parts__name").text(function(i, text) {
+
+    if (text.length >= 70) {
+      text = text.substring(0, 70);
+      let lastIndex = text.lastIndexOf(" ");
+      text = text.substring(0, lastIndex) + '...';
+    }
+    
+    $(this).text(text);
+    
+  });
+
+$(".catalog__item-descr").text(function(i, text) {
+
+  if (text.length >= 90) {
+    text = text.substring(0, 90);
+    let lastIndex = text.lastIndexOf(" ");
+    text = text.substring(0, lastIndex) + '...';
+  }
+  
+  $(this).text(text);
+  
 });

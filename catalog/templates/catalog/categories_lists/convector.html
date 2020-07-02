@@ -1,39 +1,35 @@
-{% extends 'mainApp/wrapper.html' %}
-
-{% block title %}
-    Категории конвекторов
-{% endblock %}
-
-{% block styles %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/list.css' %}">
-{% endblock %}
-
-{% block content %}
-    <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
-       <section class="converter-categories">
-            <div class="converter-categories__category category-grey">
-               <img class="converter-categories__category-image" src="/media/convectors_categories_images/recessed.png" alt="Встраиваемые конвекторы">
-               <div class="converter-categories__category-name">
-                   <a href="{% url 'recessed_convector_list_view' %}">Конвертеры встраиваемые в пол</a>
-               </div>
-           </div>
-           <div class="converter-categories__category category-light">
-            <img class="converter-categories__category-image" src="/media/convectors_categories_images/floor.png" alt="Напольные конвекторы">
-            <div class="converter-categories__category-name">
-                <a href="{% url 'floor_convector_list_view' %}">Конвертеры напольные</a>
-            </div>
-        </div>
-        <div class="converter-categories__category category-grey">
-            <img class="converter-categories__category-image" src="/media/convectors_categories_images/wall.png" alt="Настенные конвекторы">
-            <div class="converter-categories__category-name">
-                <a href="{% url 'wall_convector_list_view' %}">Конвертеры настенные</a>
-            </div>
-        </div>
-       </section>
-{% endblock %}
-
-
-{% block scripts %}
-    <script src="{% static '/js/list.js' %}"></script>
-{% endblock %}
+{% extends 'mainApp/wrapper.html' %}
+
+{% block title %}
+    Категории конвекторов
+{% endblock %}
+
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
+       <section class="converter-categories">
+            <div class="converter-categories__category category-grey">
+               <img class="converter-categories__category-image" src="/media/convectors_categories_images/recessed.png" alt="Встраиваемые конвекторы">
+               <div class="converter-categories__category-name">
+                   <a href="{% url 'recessed_convector_list_view' %}">Конвертеры встраиваемые в пол</a>
+               </div>
+           </div>
+           <div class="converter-categories__category category-light">
+            <img class="converter-categories__category-image" src="/media/convectors_categories_images/floor.png" alt="Напольные конвекторы">
+            <div class="converter-categories__category-name">
+                <a href="{% url 'floor_convector_list_view' %}">Конвертеры напольные</a>
+            </div>
+        </div>
+        <div class="converter-categories__category category-grey">
+            <img class="converter-categories__category-image" src="/media/convectors_categories_images/wall.png" alt="Настенные конвекторы">
+            <div class="converter-categories__category-name">
+                <a href="{% url 'wall_convector_list_view' %}">Конвертеры настенные</a>
+            </div>
+        </div>
+       </section>
+{% endblock %}
+

@@ -16,12 +16,22 @@
     align-items: center;
     padding: 20px 0; }
   .basket__image {
-    width: 10%;
-    max-height: 300px; }
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: scale-down;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+  .basket__image-block {
+    width: 15%;
+    height: 300px;
+    position: relative; }
   .basket__text {
     width: 40%; }
   .basket__name {
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    font-weight: 400; }
   .basket__descr {
     color: rgba(37, 37, 38, 0.8); }
   .basket__count-type {
@@ -63,14 +73,16 @@
     align-content: center;
     align-items: center; }
     .basket__results p {
+      margin: 1rem 0;
       vertical-align: middle;
       color: rgba(37, 37, 38, 0.7); }
   .basket__checkout {
     padding: 10px 20px;
     background-color: #009AC6;
     color: #f1f1f1;
-    margin-left: 10px;
-    cursor: pointer; }
+    cursor: pointer;
+    margin: 1rem 0;
+    margin-left: 10px; }
     .basket__checkout:hover {
       transition: 0.1s all ease;
       background-color: #252526; }

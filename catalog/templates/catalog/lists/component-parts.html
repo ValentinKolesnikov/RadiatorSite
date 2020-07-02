@@ -1,28 +1,28 @@
-{% extends 'mainApp/wrapper.html' %}
-
-{% block title %}
- {{ category_name }}
-{% endblock %}
-
-{% block styles %}
-    {% load static %}
-    <link rel="stylesheet" href={% static 'css/component-parts.css' %}>
-{% endblock %}
-
-{% block content %}
-    <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
-        <section class="comp-parts">
-            {% for component in components %}
-                <div class="comp-parts__item">
-                    <img src={{ component.photo.url }} alt={{ component }} class="comp-parts__img">
-                    <p class="comp-parts__name">{{ component.name }}</p>
-                    <p class="comp-parts__price">{{ component.price }} руб.</p>
-                    <a href={% url 'component_page_view' component.type_id component.id %} class="comp-parts__more">Подробнее</a>
-                </div>
-            {% endfor %}
-        </section>
-{% endblock %}
-
-{% block scripts %}
-    <script src={% static 'js/list.js' %}></script>
+{% extends 'mainApp/wrapper.html' %}
+
+{% block title %}
+ {{ category_name }}
+{% endblock %}
+
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/component-parts.css' %}>
+{% endblock %}
+
+{% block content %}
+    <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
+        <section class="comp-parts">
+            {% for component in components %}
+                <div class="comp-parts__item">
+                    <img src={{ component.photo.url }} alt={{ component }} class="comp-parts__img">
+                    <p class="comp-parts__name">{{ component.name }}</p>
+                    <p class="comp-parts__price">{{ component.price }} руб.</p>
+                    <a href={% url 'component_page_view' component.type_id component.id %} class="comp-parts__more">Подробнее</a>
+                </div>
+            {% endfor %}
+        </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src={% static 'js/list.js' %}></script>
 {% endblock %}

@@ -1,80 +1,80 @@
-{% extends 'mainApp/wrapper.html' %}
-
-{% block title %}
-Радиаторы
-{% endblock %}
-
-{% block styles %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static "css/main-page.css" %}">
-{% endblock %}
-
-{% block content %}
-        <section class="description" style="background: url('/media/main_page_images/mainpage.jpg') center center">
-            <div class="description__text-block">
-                <span class="description__text">Отопительные приборы сегодня </span><br>
-                <span class="description__text">- это не только инженерная необходимость, </span><br>
-                <span class="description__text">это еще и способ осуществить эксклюзивный,</span><br>
-                <span class="description__text">стильный дизайн вашей комнаты</span>
-            </div>
-        </section>
-        <section class="our-advantages">
-            <ul class="our-advantages__list">
-                <li class="our-advantages__item"><i class="fas fa-thumbs-up"></i>Гарантия</li>
-                <li class="our-advantages__item"><i class="fas fa-shield-alt"></i>Качество</li>
-                <li class="our-advantages__item"><i class="fas fa-money-bill-alt"></i>Выгодная<br> цена</li>
-                <li class="our-advantages__item"><i class="fas fa-clipboard-list"></i>Широкий<br> ассортимент</li>
-
-            </ul>
-        </section>
-        <section class="separation-line"></section>
-        <h1 class="categories-headline">Категории радиаторов</h1>
-        <section class="radiator-categories">
-            <div class="radiator-categories__top limited-width">
-                <div class="radiator-categories__item item__light-gray ">
-                    <a href={% url 'aluminium_view' %}>
-                        <h3 class="radiator-categories__radiator-name">Алюминиевые радиаторы</h3>
-                        <img src="/media/main_page_images/aluminium.png" alt="Алюминиевый">
-                    </a>
-                </div>
-                <div class="radiator-categories__item item__dark-gray">
-                    <a href="{% url 'design_list_view' %}">
-                    <h3 class="radiator-categories__radiator-name">Дизайн радиаторы</h3>
-                    <img src="/media/main_page_images/design2.png" alt="Дизайн">
-                    </a>
-                </div>
-                <div class="radiator-categories__item item__light-gray">
-                    <a href="{% url 'bimetal_view' %}">
-                    <h3 class="radiator-categories__radiator-name">Биметаллические радиаторы</h3>
-                    <img src="/media/main_page_images/bimetal.png" alt="Биматаллический">
-                    </a>
-                </div>
-                <div class="radiator-categories__item item__dark-gray">
-                    <a href="{% url 'steel_tubular_view' %}">
-                    <h3 class="radiator-categories__radiator-name">Стальные трубчатые радиаторы</h3>
-                    <img src="/media/main_page_images/steel-tubular2.png" alt="Стальной трубчатый">
-                    </a>
-                </div>
-                <div class="radiator-categories__item item__light-gray">
-                    <a href="{% url 'steel_panel_view' %}">
-                    <h3 class="radiator-categories__radiator-name">Стальные панельные радиаторы</h3>
-                    <img src="/media/main_page_images/steel-panel.png" alt="Стальной панельный">
-                    </a>
-                </div>
-                <div class="radiator-categories__item item__dark-gray">
-                    <a href="{% url 'cost_iron_list_view' %}">
-                    <h3 class="radiator-categories__radiator-name">Чугунные радиаторы</h3>
-                    <img src="/media/main_page_images/cast-iron2.png" alt="Чугунный">
-                    </a>
-                </div>
-            </div>
-            <div>
-                <a class="radiator-categories__bottom" href="{% url 'convector_categories_view' %}">
-                    <h3 class="radiator-categories__complect-name">Конвекторы</h3>
-                    <div class="radiator-categories__item-bottom item__light-gray">
-                        <img src="/media/main_page_images/converter.png" alt="Конвектор">
-                    </div>
-                </a>
-            </div>
-        </section>
+{% extends 'mainApp/wrapper.html' %}
+{% load settings %}
+{% block title %}
+{% get_settings 'name' %}
+{% endblock %}
+
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/main-page.css" %}">
+{% endblock %}
+
+{% block content %}
+        <section class="description" style="background: url('/media/main_page_images/mainpage.jpg') center center no-repeat">
+            <div class="description__text-block">
+                <span class="description__text">Отопительные приборы сегодня </span><br>
+                <span class="description__text">- это не только инженерная необходимость, </span><br>
+                <span class="description__text">это еще и способ осуществить эксклюзивный,</span><br>
+                <span class="description__text">стильный дизайн вашей комнаты</span>
+            </div>
+        </section>
+        <section class="our-advantages">
+            <ul class="our-advantages__list">
+                <li class="our-advantages__item"><i class="fas fa-thumbs-up"></i>Гарантия</li>
+                <li class="our-advantages__item"><i class="fas fa-shield-alt"></i>Качество</li>
+                <li class="our-advantages__item"><i class="fas fa-money-bill-alt"></i>Выгодная<br> цена</li>
+                <li class="our-advantages__item"><i class="fas fa-clipboard-list"></i>Широкий<br> ассортимент</li>
+
+            </ul>
+        </section>
+        <section class="separation-line"></section>
+        <h1 class="categories-headline">Категории радиаторов</h1>
+        <section class="radiator-categories">
+            <div class="radiator-categories__top limited-width">
+                <div class="radiator-categories__item item__light-gray ">
+                    <a href={% url 'aluminium_view' %}>
+                        <h3 class="radiator-categories__radiator-name">Алюминиевые радиаторы</h3>
+                        <img src="/media/main_page_images/aluminium.png" alt="Алюминиевый">
+                    </a>
+                </div>
+                <div class="radiator-categories__item item__dark-gray">
+                    <a href="{% url 'design_list_view' %}">
+                    <h3 class="radiator-categories__radiator-name">Дизайн радиаторы</h3>
+                    <img src="/media/main_page_images/design2.png" alt="Дизайн">
+                    </a>
+                </div>
+                <div class="radiator-categories__item item__light-gray">
+                    <a href="{% url 'bimetal_view' %}">
+                    <h3 class="radiator-categories__radiator-name">Биметаллические радиаторы</h3>
+                    <img src="/media/main_page_images/bimetal.png" alt="Биматаллический">
+                    </a>
+                </div>
+                <div class="radiator-categories__item item__dark-gray">
+                    <a href="{% url 'steel_tubular_view' %}">
+                    <h3 class="radiator-categories__radiator-name">Стальные трубчатые радиаторы</h3>
+                    <img src="/media/main_page_images/steel-tubular2.png" alt="Стальной трубчатый">
+                    </a>
+                </div>
+                <div class="radiator-categories__item item__light-gray">
+                    <a href="{% url 'steel_panel_view' %}">
+                    <h3 class="radiator-categories__radiator-name">Стальные панельные радиаторы</h3>
+                    <img src="/media/main_page_images/steel-panel.png" alt="Стальной панельный">
+                    </a>
+                </div>
+                <div class="radiator-categories__item item__dark-gray">
+                    <a href="{% url 'cost_iron_list_view' %}">
+                    <h3 class="radiator-categories__radiator-name">Чугунные радиаторы</h3>
+                    <img src="/media/main_page_images/cast-iron2.png" alt="Чугунный">
+                    </a>
+                </div>
+            </div>
+            <div>
+                <a class="radiator-categories__bottom" href="{% url 'convector_categories_view' %}">
+                    <h3 class="radiator-categories__complect-name">Конвекторы</h3>
+                    <div class="radiator-categories__item-bottom item__light-gray">
+                        <img src="/media/main_page_images/converter.png" alt="Конвектор">
+                    </div>
+                </a>
+            </div>
+        </section>
 {% endblock %}

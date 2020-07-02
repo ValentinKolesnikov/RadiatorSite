@@ -1,7 +1,8 @@
 .checkout-block {
   width: 100%;
   position: relative;
-  padding: 40px; }
+  padding: 40px;
+  box-sizing: border-box; }
   .checkout-block__form {
     width: 35%;
     display: flex;
@@ -31,4 +32,4 @@
     font-weight: 100;
     color: #4b4b4d;
     border-bottom: 1px solid #DCDCDC;
-    width: 35%; }
+    width: 100%; }

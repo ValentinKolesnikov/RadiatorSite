@@ -7,11 +7,30 @@
   .radiator__parameters {
     width: 100%; } }
 
+@media screen and (max-width: 700px) {
+  .main-converter__second-view-section {
+    padding-left: 0; }
+  .radiator__measurings {
+    flex-direction: column;
+    width: 100%; }
+    .radiator__measurings-left, .radiator__measurings-right {
+      width: 100% !important; }
+  .radiator__specifications, .radiator__specifications-title {
+    padding-left: 10px !important; }
+  .custom-select__btn {
+    width: 80vw !important; }
+  .custom-select__list {
+    width: 80vw !important; }
+  .radiator__parameters-bottom {
+    padding-left: 0; } }
+
 @media screen and (max-width: 580px) {
+  .main-converter__specifications p {
+    font-size: 1.5rem !important; }
   .radiator select {
     font-size: 1.6rem; }
-  .radiator__specification {
-    font-size: 1.8rem; }
+  .radiator__specifications p {
+    font-size: 1.5rem; }
   .radiator__measurings {
     padding: 0 10px; }
   .radiator__parameters-top {
@@ -25,6 +44,8 @@
   .radiator__color {
     width: 100%;
     margin-bottom: 20px; }
+    .radiator__color p {
+      font-size: 1.3rem !important; }
   .radiator__connection {
     width: 100%;
     padding: 0 10px; }

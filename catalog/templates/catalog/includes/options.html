@@ -1,11 +1,11 @@
-{#<option value="{{ option }}">{{ option }}</option>#}
-{#{% for parameter in parameters %}#}
-{#    {% if parameter == option %}#}
-{#    {% else %}#}
-{#        <option value="{{ parameter }}">{{ parameter }}</option>#}
-{#    {% endif %}#}
-{#{% endfor %}#}
-
-{% for parameter in parameters %}
-    <li onclick="changeValue(this)" data-value="{{ parameter }}" class="custom-select__item" id="{{ option_id }}">{{ parameter }} {{ unit }}</li>
-{% endfor %}
+{#<option value="{{ option }}">{{ option }}</option>#}
+{#{% for parameter in parameters %}#}
+{#    {% if parameter == option %}#}
+{#    {% else %}#}
+{#        <option value="{{ parameter }}">{{ parameter }}</option>#}
+{#    {% endif %}#}
+{#{% endfor %}#}
+
+{% for parameter in parameters %}
+    <li onclick="changeValue(this)" data-value="{{ parameter }}" class="custom-select__item" id="{{ option_id }}">{{ parameter }} {{ unit }}</li>
+{% endfor %}

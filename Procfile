@@ -1,1 +1,0 @@
-web: gunicorn radiatorSite.wsgi --log-file -

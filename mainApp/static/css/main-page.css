@@ -79,6 +79,7 @@
       transform: translate(-50%, -50%); }
   .radiator-categories__radiator-name {
     position: absolute;
+    font-weight: 300;
     color: #ffffff;
     z-index: 2;
     top: 50%;
@@ -90,6 +91,7 @@
     display: none;
     letter-spacing: 1px; }
   .radiator-categories__complect-name {
+    font-weight: 300;
     position: absolute;
     color: #ffffff;
     z-index: 10;
@@ -122,7 +124,7 @@
   .description__text {
     color: #ffffff;
     font-size: 3.3rem;
-    font-weight: normal;
+    font-weight: 300;
     font-family: 'Merriweather', serif;
     line-height: 5.3rem;
     padding: 0 10px; }
@@ -140,7 +142,8 @@
   color: #252526;
   margin-top: 100px;
   font-size: 3.7rem;
-  text-align: center; }
+  text-align: center;
+  font-weight: 300; }
 
 .our-advantages {
   width: 100%;

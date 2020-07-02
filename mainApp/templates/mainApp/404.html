@@ -1,15 +1,16 @@
-{% extends 'mainApp/wrapper.html' %}
-
-{% block title %}
-    {{ ex_title }}
-{% endblock %}
-
-{% block content %}
-    <div class="error-block">
-        <h1 class="error-block__title">{{ ex_title }}</h1>
-        <div class="error-block__body">
-            <img class="error-block__image" src="/media/error.png" alt="error">
-            <p class="error-block__text">{{ ex_text }}</p>
-        </div>
-    </div>
-{% endblock %}
+{% extends 'mainApp/wrapper.html' %}
+
+{% block title %}
+    {{ ex_title }}
+{% endblock %}
+
+{% block content %}
+    <div class="error-block">
+        <h1 class="error-block__title">{{ ex_title }}</h1>
+        <div class="error-block__body">
+{#            <img class="error-block__image" src="/media/error.png" alt="error">#}
+            <p class="error-block__text">{{ ex_text }}</p>
+        </div>
+    </div>
+{% endblock %}
+

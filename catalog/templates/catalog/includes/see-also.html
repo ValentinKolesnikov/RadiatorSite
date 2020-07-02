@@ -1,13 +1,13 @@
-<section class="see-also">
-            <h2 class="see-also__title">Смотрите так же:</h2>
-            <div class="see-also__list">
-                {% for component in components %}
-                    <div class="see-also__item">
-                        <img src="{{ component.photo.url }}" alt="" class="see-also__img">
-                        <p class="see-also__name">{{ component.name }}</p>
-                        <p class="see-also__price">{{ component.price }} р.</p>
-                        <a href="{% url 'component_page_view' component.type_id component.id %}" class="see-also__more">Подробнее</a>
-                    </div>
-                {% endfor %}
-            </div>
+<section class="see-also">
+            <h2 class="see-also__title">Смотрите так же:</h2>
+            <div class="see-also__list">
+                {% for component in components %}
+                    <div class="see-also__item">
+                        <img src="{{ component.photo.url }}" alt="" class="see-also__img">
+                        <p class="see-also__name">{{ component.name }}</p>
+                        <p class="see-also__price">{{ component.price }} р.</p>
+                        <a href="{% url 'component_page_view' component.type_id component.id %}" class="see-also__more">Подробнее</a>
+                    </div>
+                {% endfor %}
+            </div>
 </section>

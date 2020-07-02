@@ -1,27 +1,27 @@
-{% extends 'mainApp/wrapper.html' %}
-
-{% block title %}
-    Оформление заказа
-{% endblock %}
-
-{% block styles %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
-{% endblock %}
-
-{% block content %}
-    <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
-    <div class="checkout-block">
-        <h1 class="checkout-block__title">Оформление заказа</h1>
-        <form class="checkout-block__form" action="{% url 'send_mail_view' %}" method="POST">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Отправить">
-        </form>
-    </div>
-
-{% endblock %}
-
-{% block scripts %}
-    <script src="{% static 'js/checkout.js' %}"></script>
+{% extends 'mainApp/wrapper.html' %}
+
+{% block title %}
+    Оформление заказа
+{% endblock %}
+
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="photo-line" style="background: url('/media/photo-line.png') center center no-repeat"></section>
+    <div class="checkout-block">
+        <h1 class="checkout-block__title">Оформление заказа</h1>
+        <form class="checkout-block__form" action="{% url 'send_mail_view' %}" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/checkout.js' %}"></script>
 {% endblock %}

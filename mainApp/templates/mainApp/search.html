@@ -1,24 +1,148 @@
-
-    {% for category in categories_result %}
-        <a href="{% url 'component_type_list_view' category.id %}" class="results__item-line">{{ category }}</a>
-    {% endfor %}
-
-    <p class="results__item-line"></p>
-    {% for component in componets_result %}
-        <a href="{% url 'component_page_view' component.type.id component.id %}" class="results__item-block">
-            <img class="results__item-block-image" src="{{ component.photo.url }}" alt="{{ component }}">
-            <div class="results__item-block-descr">
-                <p class="results__item-block-name">{{ component }}</p>
-                <p class="results__item-block-price">{{ component.price }}</p>
-            </div>
-        </a>
-    {% endfor %}
-    {% for radiator in radiators_result %}
-        <a href="" class="results__item-block">
-            <img class="results__item-block-image" src="{{ radiator.photo.url }}" alt="{{ radiator }}">
-            <div class="results__item-block-descr">
-                <p class="results__item-block-name">{{ radiator }}</p>
-                <p class="results__item-block-price">{{ radiator.price }}</p>
-            </div>
-        </a>
-    {% endfor %}
+<div class="cssload-container" id="loading">
+    <div class="cssload-speeding-wheel"></div>
+</div>
+
+
+{% if aluminium_cat %}
+<a href="{% url 'aluminium_view' %}" class="results__item-line">Алюминивые радиаторы</a>
+{% endif %}
+{% if bimetal_cat %}
+<a href="{% url 'bimetal_view' %}" class="results__item-line">Биметаллические радиаторы</a>
+{% endif %}
+{% if design_cat %}
+<a href="{% url 'design_list_view' %}" class="results__item-line">Дизайн радиаторы</a>
+{% endif %}
+{% if steel_panel_cat %}
+<a href="{% url 'steel_panel_view' %}" class="results__item-line">Стальные панельные радиаторы</a>
+{% endif %}
+{% if steel_tubular_cat %}
+<a href="{% url 'steel_tubular_view' %}" class="results__item-line">Стальные трубчатые радиаторы</a>
+{% endif %}
+{% if cost_iron_cat %}
+<a href="{% url 'cost_iron_list_view' %}" class="results__item-line">Чугунные радиаторы</a>
+{% endif %}
+{% if recessed_cat %}
+<a href="{% url 'recessed_convector_list_view' %}" class="results__item-line">Встраиваемые конвекторы</a>
+{% endif %}
+{% if floor_cat %}
+<a href="{% url 'floor_convector_list_view' %}" class="results__item-line">Напольные конвекторы</a>
+{% endif %}
+{% if wall_cat %}
+<a href="{% url 'wall_convector_list_view' %}" class="results__item-line">Настенные конвекторы</a>
+{% endif %}
+{% if components_cat %}
+<a href="{% url 'components_list_view' %}" class="results__item-line">Комплектующие</a>
+{% endif %}
+
+
+{% for rad in aluminium %}
+    <a href="{% url 'aluminium_view' rad.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image" src="{{ rad.photo.url }}"
+                                                          alt="{{ rad }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ rad }}</p>
+            <p class="results__item-block-price">{{ rad.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
+{% for rad in bimetal %}
+    <a href="{% url 'bimetal_view' rad.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image" src="{{ rad.photo.url }}"
+                                                          alt="{{ rad }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ rad }}</p>
+            <p class="results__item-block-price">{{ rad.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
+{% for rad in design %}
+    <a href="{% url 'design_view' rad.manufacturer.id rad.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image" src="{{ rad.photo.url }}"
+                                                          alt="{{ rad }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ rad }}</p>
+            <p class="results__item-block-price">{{ rad.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
+{% for rad in cost_iron %}
+    <a href="{% url 'cost_iron_view' rad.manufacturer.id rad.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image" src="{{ rad.photo.url }}"
+                                                          alt="{{ rad }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ rad }}</p>
+            <p class="results__item-block-price">{{ rad.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
+{% for rad in steel_panel %}
+    <a href="{% url 'steel_panel_view' rad.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image" src="{{ rad.photo.url }}"
+                                                          alt="{{ rad }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ rad }}</p>
+            <p class="results__item-block-price">{{ rad.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
+{% for rad in steel_tubular %}
+    <a href="{% url 'steel_tubular_view' rad.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image" src="{{ rad.photo.url }}"
+                                                          alt="{{ rad }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ rad }}</p>
+            <p class="results__item-block-price">{{ rad.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
+{% for rad in steel_tubular_kzto %}
+    <a href="{% url 'steel_tubular_kzto_view' rad.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image" src="{{ rad.photo.url }}"
+                                                          alt="{{ rad }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ rad }}</p>
+            <p class="results__item-block-price">{{ rad.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
+{% for rad in floor %}
+    <a href="{% url 'floor_convector_view' rad.manufacturer.id rad.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image" src="{{ rad.photo.url }}"
+                                                          alt="{{ rad }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ rad }}</p>
+            <p class="results__item-block-price">{{ rad.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
+{% for rad in wall %}
+    <a href="{% url 'wall_convector_view' rad.manufacturer.id rad.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image" src="{{ rad.photo.url }}"
+                                                          alt="{{ rad }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ rad }}</p>
+            <p class="results__item-block-price">{{ rad.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
+{% for rad in recessed %}
+    <a href="{% url 'recessed_convector_view' rad.manufacturer.id rad.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image" src="{{ rad.photo.url }}"
+                                                          alt="{{ rad }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ rad }}</p>
+            <p class="results__item-block-price">{{ rad.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
+
+{% for component in components_result %}
+    <a href="{% url 'component_page_view' component.type.id component.id %}" class="results__item-block">
+        <div class="results__item-block-image-block"><img class="results__item-block-image"
+                                                          src="{{ component.photo.url }}" alt="{{ component }}"></div>
+        <div class="results__item-block-descr">
+            <p class="results__item-block-name">{{ component }}</p>
+            <p class="results__item-block-price">{{ component.price }} р.</p>
+        </div>
+    </a>
+{% endfor %}
